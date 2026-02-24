@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>SalesPlaybookForge - Sales Playbook Generator</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <style>.glass{background:rgba(255,255,255,0.05);backdrop-filter:blur(20px);border:1px solid rgba(255,255,255,0.1)}.gradient-text{background:linear-gradient(135deg,#ef4444,#f97316);-webkit-background-clip:text;-webkit-text-fill-color:transparent}</style>
+</head>
+<body class="bg-[#0a0a0f] min-h-screen text-white">
+  <header class="glass sticky top-0">
+    <div class="max-w-7xl mx-auto px-8 py-5 flex items-center justify-between">
+      <div class="flex items-center gap-4"><div class="w-14 h-14 rounded-2xl bg-gradient-to-br from-red-500 to-orange-500 flex items-center justify-center shadow-lg"><i class="fas fa-bullseye text-2xl"></i></div><div><h1 class="text-2xl font-bold gradient-text">SalesPlaybookForge</h1><p class="text-xs text-slate-400">Sales Playbook Generator</p></div></div>
+    </div>
+  </header>
+  <main class="max-w-7xl mx-auto px-8 py-10">
+    <div class="grid grid-cols-4 gap-6 mb-10">
+      <div class="glass rounded-2xl p-6"><p class="text-slate-400 text-sm mb-2">Playbooks</p><p class="text-4xl font-bold">18</p></div>
+      <div class="glass rounded-2xl p-6"><p class="text-slate-400 text-sm mb-2">Win Rate</p><p class="text-4xl font-bold text-green-400">34%</p></div>
+      <div class="glass rounded-2xl p-6"><p class="text-slate-400 text-sm mb-2">Avg Deal</p><p class="text-4xl font-bold text-red-400">$12k</p></div>
+      <div class="glass rounded-2xl p-6"><p class="text-slate-400 text-sm mb-2">Sales Reps</p><p class="text-4xl font-bold">8</p></div>
+    </div>
+    <div class="grid lg:grid-cols-2 gap-8">
+      <div class="glass rounded-2xl p-8"><h2 class="text-xl font-bold mb-6"><i class="fas fa-magic text-red-400 mr-3"></i>Create Playbook</h2>
+        <div class="space-y-4"><input placeholder="Playbook name..." class="w-full bg-white/5 border border-white/10 rounded-xl p-4 text-white placeholder-slate-500"><textarea placeholder="Product info, ICP, competitive info..." class="w-full bg-white/5 border border-white/10 rounded-xl p-4 text-white placeholder-slate-500 h-32"></textarea><button class="w-full py-4 bg-gradient-to-r from-red-500 to-orange-500 rounded-xl font-semibold"><i class="fas fa-wand-magic-sparkles mr-2"></i>Generate Playbook</button></div>
+      </div>
+      <div class="glass rounded-2xl p-8"><h2 class="text-xl font-bold mb-6"><i class="fas fa-trophy text-orange-400 mr-3"></i>Top Playbooks</h2>
+        <div class="space-y-3">
+          {[{name:'Enterprise Sales',win:45,deals:24,status:'Active'},{name:'SMB Outreach',win:32,deals:56,status:'Active'},{name:'Inbound Qualified',win:28,deals:78,status:'Draft'}].map(p=>`
+          <div class="bg-white/5 rounded-xl p-4 flex items-center justify-between"><div><p class="font-semibold">${p.name}</p><p class="text-slate-400 text-sm">${p.deals} deals • ${p.win}% win rate</p></div><span class="px-3 py-1 rounded-lg text-xs ${p.status==='Active'?'bg-green-500/20 text-green-400':'bg-yellow-500/20 text-yellow-400'}">${p.status}</span></div>
+          `).join('')}
+        </div>
+      </div>
+    </div>
+  </main>
+</body>
+</html>
